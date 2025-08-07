@@ -1,1 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francolin Primary School - Nurturing Young Minds</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts - Kid-friendly font -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #e63946; /* Vibrant red */
+            --secondary-color: #f1faee; /* Light cream/white */
+            --accent-color: #ffd166; /* Yellow for accents */
+            --dark-color: #1d3557; /* Dark blue for contrast */
+            --light-color: #ffffff; /* Pure white */
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            color: #333;
+            background-color: var(--secondary-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--light-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: scale(1.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(230, 57, 70, 0.8), rgba(230, 57, 70, 0.8)), 
+                        url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--light-color);
+            color: var(--light-color);
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 6px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+        
+        .about-section, .admission-section, .contact-section, .gallery-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            margin-bottom: 40px;
+        }
+        
+        .feature-box {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--primary-color);
+            text-align: center;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .admission-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .admission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.2);
+        }
+        
+        .admission-card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--primary-color);
+            color: #333;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .form-control:focus {
+            background-color: white;
+            border-color: var(--accent-color);
+            color: #333;
+            box-shadow: 0 0 0 0.25rem rgba(255, 209, 102, 0.25);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            padding: 50px 0 20px;
+            color: white;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+        
+        .footer-links h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            border: 2px solid white;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        /* Page transition */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Kid-friendly elements */
+        .fun-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .shape-2 {
+            bottom: 15%;
+            right: 8%;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .fun-divider {
+            height: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--primary-color),
+                var(--primary-color) 10px,
+                var(--accent-color) 10px,
+                var(--accent-color) 20px
+            );
+            margin: 40px 0;
+            border-radius: 5px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-box, .admission-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative shapes -->
+    <div class="fun-shape shape-1"></div>
+    <div class="fun-shape shape-2"></div>
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">FRANCOLIN PRIMARY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('admission')">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('gallery')">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Nurturing Young Minds</h1>
+                <p class="hero-subtitle">Francolin Primary School provides a fun, safe learning environment where children grow and thrive.</p>
+                <a href="#" class="btn btn-primary" onclick="showPage('admission')">Enroll Now</a>
+            </div>
+        </section>
+
+        <!-- Fun divider -->
+        <div class="fun-divider"></div>
+
+        <!-- Features Section -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title text-center">Why Choose Francolin Primary</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3 class="feature-title">Child-Centered Learning</h3>
+                            <p>Our approach focuses on each child's individual needs and learning style to help them reach their full potential.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3 class="feature-title">Creative Curriculum</h3>
+                            <p>We blend academics with arts, music, and play to make learning engaging and enjoyable for young children.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="feature-title">Caring Environment</h3>
+                            <p>Our nurturing staff creates a warm, welcoming atmosphere where children feel safe and valued.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Our School</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h3>Our Story</h3>
+                            <p>Founded in 1990, Francolin Primary School has been serving the community with quality primary education for over 30 years. We started as a small neighborhood school and have grown into a respected institution known for our child-friendly approach to learning.</p>
+                            
+                            <h3>Our Philosophy</h3>
+                            <p>We believe that every child is unique and deserves an education that nurtures their individual talents while providing a strong foundation in core academic skills.</p>
+                            
+                            <h3>Our Programs</h3>
+                            <ul>
+                                <li>Early Years (Pre-K to Kindergarten)</li>
+                                <li>Lower Primary (Grades 1-3)</li>
+                                <li>Upper Primary (Grades 4-6)</li>
+                                <li>After-School Activities</li>
+                                <li>Summer Programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414266529!3d6.52763164527838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1625060000000!5m2!1sen!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="mt-4">
+                            <h4>School Hours</h4>
+                            <p>Monday-Friday: 8:00am - 2:30pm</p>
+                            <p>After-School Care: Until 5:30pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admission Page -->
+    <div id="admission" class="page">
+        <section class="admission-section">
+            <div class="container">
+                <h2 class="section-title text-center">Admission Process</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="admission-card">
+                            <h3 class="admission-card-title">Requirements</h3>
+                            <ul>
+                                <li>Completed application form</li>
+                                <li>Birth certificate</li>
+                                <li>Immunization records</li>
+                                <li>Previous school report (if applicable)</li>
+                                <li>Two passport photographs</li>
+                                <li>Parent/guardian ID copy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="admission-card">
+                            <h3 class="admission-card-title">Important Dates</h3>
+                            <ul>
+                                <li>Application opens: January 10</li>
+                                <li>Application deadline: March 15</li>
+                                <li>Parent orientation: April 5</li>
+                                <li>School begins: September 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="admission-card">
+                            <h3 class="admission-card-title text-center">Enrollment Form</h3>
+                            <form id="admissionForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="childName" class="form-label">Child's Name</label>
+                                            <input type="text" class="form-control" id="childName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="birthDate" class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" id="birthDate" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="parentName" class="form-label">Parent/Guardian Name</label>
+                                    <input type="text" class="form-control" id="parentName" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="parentEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="parentEmail" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="parentPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="parentPhone" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="gradeLevel" class="form-label">Grade Level Applying For</label>
+                                    <select class="form-control" id="gradeLevel" required>
+                                        <option value="">Select Grade</option>
+                                        <option value="pre-k">Pre-Kindergarten</option>
+                                        <option value="k">Kindergarten</option>
+                                        <option value="1">Grade 1</option>
+                                        <option value="2">Grade 2</option>
+                                        <option value="3">Grade 3</option>
+                                        <option value="4">Grade 4</option>
+                                        <option value="5">Grade 5</option>
+                                        <option value="6">Grade 6</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title text-center">School Life</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Classroom">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Playground">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Art Class">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Science Activity">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sports Day">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="School Building">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="section-title text-center">Contact Us</h2>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="contact-info">
+                            <h3>Get in Touch</h3>
+                            <p>We welcome your questions and look forward to meeting your family!</p>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h5>Address</h5>
+                                    <p>123 Learning Lane, Education City, Lagos, Nigeria</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h5>Phone</h5>
+                                    <p>+234 123 456 7890 (Office)</p>
+                                    <p>+234 987 654 3210 (Admissions)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-4">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>info@francolinprimary.edu</p>
+                                    <p>admissions@francolinprimary.edu</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="mt-4">School Hours</h5>
+                            <p>Monday-Friday: 8:00am - 3:30pm</p>
+                            <p>Office Hours: 7:30am - 4:30pm</p>
+                            
+                            <div class="social-icons mt-4">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="contactName" class="form-label">Your Name</label>
+                                            <input type="text" class="form-control" id="contactName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="contactEmail" class="form-label">Your Email</label>
+                                            <input type="email" class="form-control" id="contactEmail" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="contactSubject" class="form-label">Subject</label>
+                                    <select class="form-control" id="contactSubject" required>
+                                        <option value="">Select Subject</option>
+                                        <option value="admission">Admission Inquiry</option>
+                                        <option value="tour">Schedule a Tour</option>
+                                        <option value="general">General Question</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-logo">FRANCOLIN PRIMARY</div>
+                    <p>Nurturing young minds since 1990.</p>
+                    <p>Follow us on social media:</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#" onclick="showPage('home')">Home</a></li>
+                            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                            <li><a href="#" onclick="showPage('admission')">Admission</a></li>
+                            <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-links">
+                        <h5>Programs</h5>
+                        <ul>
+                            <li><a href="#">Early Years</a></li>
+                            <li><a href="#">Lower Primary</a></li>
+                            <li><a href="#">Upper Primary</a></li>
+                            <li><a href="#">After-School</a></li>
+                            <li><a href="#">Summer Camp</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-links">
+                        <h5>Contact Info</h5>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Learning Lane, Lagos</li>
+                            <li><i class="fas fa-phone-alt me-2"></i> +234 123 456 7890</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@francolinprimary.edu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center mt-5">
+                <p>&copy; 2023 Francolin Primary School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Show page function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find the clicked link and make it active
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Form submission
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will contact you soon to schedule an interview.');
+            this.reset();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond within 2 business days.');
+            this.reset();
+        });
+        
+        // Initialize - make home link active
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.nav-link[onclick*="home"]').classList.add('active');
+            
+            // Add fun shapes
+            const container = document.createElement('div');
+            container.className = 'fun-shapes-container';
+            document.body.appendChild(container);
+            
+            for (let i = 0; i < 5; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'fun-shape';
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.width = Math.random() * 100 + 50 + 'px';
+                shape.style.height = shape.style.width;
+                shape.style.backgroundColor = i % 2 === 0 ? 'var(--primary-color)' : 'var(--accent-color)';
+                shape.style.opacity = '0.1';
+                container.appendChild(shape);
+            }
+        });
+    </script>
+</body>
+</html>
